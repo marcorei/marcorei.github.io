@@ -1,7 +1,11 @@
-// Test for the adaptation of the mr-responsive-parallax
-
-// requires picturefill.js and it's dom architecture
-// Only support for values between 0 and 1 at the moment
+/*
+ * Angular responsive parallax
+ * an angularJS directive for a parallax effect based on responsive images by picutrefill.js
+ * 
+ * Only supports parallax values from 0 to 1 at the moment
+ *
+ * @author Markus Riegel <riegel.markus@googlemail.com>
+ */
 
 
 (function (window, angular, undefined) {
@@ -32,8 +36,8 @@
 
 
 				/*
-				 * Queries the dom for the img element and the attributes
-				 * @return object elem, width and height as base of the 
+				 * Create container elements and query the dom for all infos about the image
+				 * @return object with these attr: elem, oWidth, oHeight and noPx
 				 */
 
 				var getImgData = function(){
@@ -47,7 +51,7 @@
 						var divCont = document.getElementById(containerDivId);
 
 						if(divCont === null) {
-							divCont = angular.element('<div style="position:fixed;left:0;top:0;zindex:-999;width:100%;height:100%"></div>');
+							divCont = angular.element('<div style="position:fixed;left:0;top:0;z-index:-999;width:100%;height:100%"></div>');
 							divCont.attr('id',containerDivId);
 							angular.element(document.body).prepend(divCont);
 						}else{
@@ -103,10 +107,12 @@
 
 
 				/*
-				 * Refreshes all data that change if picutrefill.js changes the dom
+				 * Refreshes all data that changes if picutrefill.js changes the dom
 				 */
 
 				var refreshData = function(){
+
+					angular.element(window).unbind('scroll', onScrollHandler);
 
 					imgData = getImgData();
 					pxMulti = parseFloat(scope.mrPxMaxPx);
@@ -116,11 +122,10 @@
 					};
 						
 
-					// only listen to scroll event if parallaxe is enabled for this picture size
+					// only listen to scroll event if parallax is enabled for this picture size
 
 					if( imgData.noPx === true ){
 						pxMulti = 0;
-						angular.element(window).unbind('scroll', onScrollHandler);
 					}else{
 						angular.element(window).bind('scroll', onScrollHandler);
 					}
@@ -129,7 +134,7 @@
 
 
 				/*
-				 * Image scaling routing
+				 * Image scaling routine
 				 */
 
 				var scaleImg = function(){
@@ -150,12 +155,12 @@
 
 					}else{
 
-						// TODO: implement more modi!
+						// TODO: implement more scroll speed modi
 
 					}
 					
 
-					// (2) scale to fill precodure
+					// (2) scale to fill precedure
 
 					var targetRect = (imgData.noPx) ? refRect : boundRect,
 						imgElem = (imgData.noPx) ? imgData.elem: imgContImg,
@@ -203,7 +208,7 @@
 					if( !imgData.noPx )
 					{
 
-						// (1) Animation progress
+						// (1) Get animation progress
 
 						p = refRect.top / (vp.height - refRect.height);
 
@@ -216,12 +221,12 @@
 
 						}else{
 
-							// TODO: implement more modi!
+							// TODO: implement more scroll speed modi!
 
 						}
 
 
-						// (3) Calculate relative position. Refrences: refRect and BoundRect
+						// (3) Calculate relative position. Refrences: refRect and boundRect
 
 						newY = newY - refRect.top - (imgData.height - boundRect.height)*0.5;
 
@@ -232,7 +237,7 @@
 					}
 
 
-					// use translate3d if it's available for hardware accelleration
+					// use translate3d if it's available for hardware accellerated animation
 
 					if(t3d !== 'none'){
 						imgCont.css(t3d, 'translate3d(0px,'+refRect.top+'px,0)');
@@ -249,8 +254,26 @@
 				}
 
 
+
 				/*
-				 * Check for transform and translate3D support
+				 * Destroy routine
+				 */
+
+				var destroy = function(){
+
+					angular.element(window).unbind('resize', onResizeHandler);
+					angular.element(window).unbind('scroll', onScrollHandler);
+
+					if( imgCont ){
+						imgCont.parent().remove(imgCont);
+						imgContImg = null;
+					}
+
+				}
+
+
+				/*
+				 * Check for transform and translate3d support
 				 * based on https://gist.github.com/lorenzopolidori/3794226#file-has3d-js
 				 * @returns string 'none' if no support, or the right transform css attribute
 				 */
@@ -301,7 +324,7 @@
 
 
 				/*
-				 *
+				 * onResize Handler
 				 */
 
 				var onResizeHandler = function(){
@@ -317,7 +340,7 @@
 
 
 				/*
-				 * onScroll / onResize Handler
+				 * onScroll Handler
 				 */
 
 
@@ -330,14 +353,19 @@
 
 
 
-				// Check for transform3D support
+				// Check for transform3d support
 				t3d = check3d();
 
-				// Get the reference element that we use to detect the position relative to the viewport
+				// Get the reference element for the position relative to the viewport
 				refElem = elem.parent();
 				
 
+				// Add listeners for building and destroying
 				angular.element(window).bind('load', onLoadHandler);
+				
+				scope.$on('$destroy', function(){
+					destroy();
+				});
 
 
 			}
