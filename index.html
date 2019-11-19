@@ -4,87 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
-
-        <style>
-            html,
-            body {
-                height: 100%
-            }
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: #009eeb;
-                background: #17a7ea;
-                background: -moz-radial-gradient(center, ellipse cover, #17a7ea 0%, #009eeb 100%);
-                background: -webkit-radial-gradient(center, ellipse cover, #17a7ea 0%, #009eeb 100%);
-                background: radial-gradient(ellipse at center, #17a7ea 0%, #009eeb 100%);
-                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#17a7ea', endColorstr='#009eeb', GradientType=1)
-            }
-            .mr-lp-header-section {
-                height: 100%
-            }
-            .mr-lp-header-section .mr-spacer {
-                height: 50%;
-                min-height: 150pt;
-                margin-bottom: -150pt
-            }
-            .mr-lp-header-section .mr-content {
-                padding: 10pt
-            }
-            .mr-profiles-list {
-                list-style: none;
-                display: block;
-                text-align: center;
-                padding: 0;
-                margin: 34pt 0 0 0
-            }
-            .mr-profiles-list li {
-                display: inline-block;
-                margin: 0 3pt 0 3pt
-            }
-            .mr-profiles-list .mr-icon {
-                width: 32pt;
-                height: 32pt
-            }
-            .mr-profiles-list .mr-icon .mr-icon-path {
-                fill: #fff;
-                -webkit-transition: fill 1000ms;
-                -moz-transition: fill 1000ms;
-                -o-transition: fill 1000ms;
-                transition: fill 1000ms
-            }
-            .mr-profiles-list .mr-icon:hover .mr-icon-path {
-                fill: #05e8cb;
-                -webkit-transition: fill 100ms;
-                -moz-transition: fill 100ms;
-                -o-transition: fill 100ms;
-                transition: fill 100ms
-            }
-            .mr-picture {
-                display: block;
-                border-radius: 50%;
-                width: 120pt;
-                height: 120pt;
-                margin: auto;
-                background: #111;
-            }
-            h1, p {
-                font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-                font-weight: normal;
-                font-style: normal;
-                font-size: 16pt;
-                text-align: center;
-                color: #ddd;
-            }
-            h1 {
-                margin: 15pt 0 10pt 0;
-                color: #fff
-            }
-            p {
-                margin: 5pt 0 10pt 0;
-                font-size: 12pt;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body width="device-width">
         <div class="mr-lp-header-section">
@@ -93,7 +13,6 @@
                 <img class="mr-picture" src="./picture.jpg" alt="Picture of Markus holding a coffee to go in Dublin" />
                 <h1>Markus Riegel</h1>
                 <p>Freelance Developer</p>
-                <p>hey@marcorei.com</p>
                 <ul class="mr-profiles-list">
                     <li>
                         <a href="https://github.com/marcorei" title="Fork Markus on Github">
@@ -134,7 +53,12 @@
                         </a>
                     </li>
                 </ul>
+                <p><a href="./imprint.html">Contact</a></p>
             </div>
         </div>
     </body>
+
+    <!-- Required to prevent animations from firing on page load-->
+    <script> </script>
+
 </html>

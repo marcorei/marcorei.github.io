@@ -1,0 +1,83 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #17a7ea;
+}
+.mr-lp-header-section {
+    height: 100%;
+}
+.mr-lp-header-section .mr-spacer {
+    height: 50%;
+    min-height: 150pt;
+    margin-bottom: -150pt
+}
+.mr-lp-header-section .mr-content {
+    padding: 10pt
+}
+.mr-profiles-list {
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 34pt 0 5pt 0;
+}
+.mr-profiles-list li {
+    display: inline-block;
+    margin: 0 3pt 0 3pt;
+}
+.mr-profiles-list .mr-icon {
+    width: 32pt;
+    height: 32pt;
+}
+.mr-profiles-list .mr-icon .mr-icon-path {
+    fill: #fff;
+    -webkit-transition: fill 0.2s linear 0s;
+    -moz-transition: fill 0.2s linear 0s;
+    -o-transition: fill 0.2s linear 0s;
+    transition: fill 0.2s linear 0s;
+}
+.mr-profiles-list .mr-icon:hover .mr-icon-path {
+    fill: #05e8cb;
+}
+.mr-picture {
+    display: block;
+    border-radius: 50%;
+    width: 120pt;
+    height: 120pt;
+    margin: auto;
+    background: #111;
+}
+h1, p {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    color: #fff;
+}
+h1 {
+    margin: 15pt 0 5pt 0;
+    color: #fff;
+    font-size: 20pt;
+}
+p {
+    margin: 5pt 0 5pt 0;
+    font-size: 10pt;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 8pt;
+    -webkit-transition: color 0.2s linear 0s;
+    -moz-transition: color 0.2s linear 0s;
+    -o-transition: color 0.2s linear 0s;
+    transition: color 0.2s linear 0s;
+}
+a:hover {
+    color: #05e8cb;
+}
