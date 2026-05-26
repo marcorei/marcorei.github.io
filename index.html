@@ -4,61 +4,241 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <script>
+            (function () {
+                var query = new URL(window.location.href).searchParams.get("m");
+                var root = document.documentElement;
+                if (query === "3d") {
+                    root.classList.add("mode-colorful", "has-glass-logo", "has-glass-logo-settled");
+                } else {
+                    root.classList.add("mode-blue");
+                }
+                root.classList.add("mode-init");
+            })();
+        </script>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body width="device-width">
+        <svg class="mr-bg mr-bg-animate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+                <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#a4ebff" stop-opacity="1"/>
+                    <stop offset="100%" stop-color="#17a7ea" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="g2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#07496f" stop-opacity="0.98"/>
+                    <stop offset="100%" stop-color="#17a7ea" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="g3" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#39cbff" stop-opacity="0.94"/>
+                    <stop offset="100%" stop-color="#17a7ea" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="g4" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#063f61" stop-opacity="0.98"/>
+                    <stop offset="100%" stop-color="#17a7ea" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="g5" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#0f76a9" stop-opacity="0.94"/>
+                    <stop offset="100%" stop-color="#17a7ea" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <rect width="100" height="100" fill="#17a7ea"/>
+            <circle class="mr-bg-blob mr-bg-b1" cx="20" cy="24" r="52" fill="url(#g1)"/>
+            <circle class="mr-bg-blob mr-bg-b2" cx="78" cy="20" r="48" fill="url(#g2)"/>
+            <circle class="mr-bg-blob mr-bg-b3" cx="72" cy="76" r="44" fill="url(#g3)"/>
+            <circle class="mr-bg-blob mr-bg-b4" cx="28" cy="72" r="46" fill="url(#g4)"/>
+            <circle class="mr-bg-blob mr-bg-b5" cx="52" cy="46" r="40" fill="url(#g5)"/>
+        </svg>
+        <div class="mr-bg-colorful mr-bg-animate" aria-hidden="true"></div>
         <div class="mr-lp-header-section">
             <div class="mr-spacer">&nbsp;</div>
             <div class="mr-content">
-                <img class="mr-picture" src="./picture.jpg" alt="Picture of Markus holding a coffee to go in Dublin" />
-                <h1>Markus Riegel</h1>
-                <p>Freelance Developer</p>
-                <ul class="mr-profiles-list">
+                <div class="mr-logo-wrap" role="img" aria-label="marcorei logo">
+                    <svg class="mr-logo mr-logo-vector" viewBox="0 0 208 182" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path class="mr-logo-path" d="M103.902,5.868l-48.906,0l24.44,42.161l24.466,-14.089l0,-28.073Zm98.086,0l-48.932,0l-24.479,42.266l73.411,42.24l0,-84.505Zm0,169.271l0,-84.766l-73.49,42.318l24.583,42.448l48.906,0Zm-122.448,-42.37l-24.544,42.37l48.958,0l-0.026,-28.333l-24.388,-14.036Zm-73.672,42.37l49.128,0l24.544,-42.37l-73.672,-42.409l0,84.779Zm122.63,-42.448l-24.57,14.115l-24.388,-14.036l24.518,-42.279l24.44,42.201Z"/>
+                    </svg>
+                    <div class="mr-logo-glass" aria-hidden="true">
+                        <img class="mr-logo-glass-layer mr-logo-glass-layer-shadow is-ready" src="./img/logo-3d-shadow.png" alt="" />
+                        <img class="mr-logo-glass-layer mr-logo-glass-layer-beauty is-ready" src="./img/logo-3d-beauty.png" alt="" />
+                        <img class="mr-logo-glass-layer mr-logo-glass-layer-spec is-ready" src="./img/logo-3d-spec.png" alt="" />
+                    </div>
+                </div>
+                <h1 class="mr-copy-swap">
+                    <span class="mr-copy-pane mr-copy-pane-blue"><span>Markus Riegel</span></span>
+                    <span class="mr-copy-pane mr-copy-pane-colorful"><span>marcorei</span></span>
+                </h1>
+                <p class="mr-copy-swap">
+                    <span class="mr-copy-pane mr-copy-pane-blue"><span>Freelance Developer</span></span>
+                    <span class="mr-copy-pane mr-copy-pane-colorful"><span>3d printing creations</span></span>
+                </p>
+                <div class="mr-profiles-stack">
+                <ul class="mr-profiles-list mr-profiles-blue">
                     <li>
-                        <a href="https://github.com/marcorei" title="Fork Markus on Github">
-                            <svg class="mr-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50">
-                                github
-                                <path class="mr-icon-path" d="M25,0C11.2,0,0,11.2,0,25c0,11,7.2,20.4,17.1,23.7c1.3,0.2,1.7-0.5,1.7-1.2c0-0.6,0-2.2,0-4.3
-                                    c-7,1.5-8.4-3.4-8.4-3.4c-1.1-2.9-2.8-3.7-2.8-3.7c-2.3-1.6,0.2-1.5,0.2-1.5c2.5,0.2,3.8,2.6,3.8,2.6c2.2,3.8,5.9,2.7,7.3,2.1
-                                    c0.2-1.6,0.9-2.7,1.6-3.3C14.9,35.4,9,33.3,9,23.7c0-2.7,1-5,2.6-6.7c-0.3-0.6-1.1-3.2,0.2-6.6c0,0,2.1-0.7,6.9,2.6
-                                    c2-0.6,4.1-0.8,6.3-0.8c2.1,0,4.3,0.3,6.3,0.8c4.8-3.2,6.9-2.6,6.9-2.6c1.4,3.4,0.5,6,0.2,6.6c1.6,1.7,2.6,4,2.6,6.7
-                                    c0,9.6-5.8,11.7-11.4,12.3c0.9,0.8,1.7,2.3,1.7,4.6c0,3.3,0,6,0,6.9c0,0.7,0.5,1.4,1.7,1.2C42.8,45.4,50,36,50,25
-                                    C50,11.2,38.8,0,25,0z"/>
+                        <a href="https://github.com/marcorei" title="Fork Markus on Github" aria-label="Fork Markus on Github">
+                            <svg class="mr-icon mr-icon-github" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <path class="mr-icon-path" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/markus-riegel" title="Contact Markus on LinkedIn">
-                            <svg class="mr-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50">
-                                linkedin
-                                <path class="mr-icon-path" d="M35.6,35.3c0-2.6,0-5.9-3.6-5.9c-3.6,0-4.2,2.8-4.2,5.7v11.1h-6.9V23.8h6.7v3.1h0.1c0.9-1.8,3.2-3.6,6.6-3.6
-                                    c7,0,8.3,4.6,8.3,10.7l0,6.9c0,0.7,0.9,1,1.3,0.5c5.4-6.3,7.7-15.2,4.7-24.6c-2.4-7.5-8.5-13.3-16-15.6C15.6-4,0,8.7,0,25
-                                    c0,7.4,3.2,14,8.3,18.6C8.8,44,9.6,43.7,9.6,43l0-19.2h7l0,24.1c0,0.3,0.2,0.6,0.5,0.7c2.5,0.8,5.1,1.3,7.9,1.3
-                                    c3.6,0,7.1-0.8,10.2-2.2c0.3-0.1,0.5-0.4,0.5-0.7L35.6,35.3z M15.1,20.3c-3.8,1.9-7.4-1.9-5.6-5.6c0.3-0.6,0.8-1.1,1.4-1.5
-                                    c3.8-2,7.5,1.8,5.6,5.6C16.3,19.5,15.7,20,15.1,20.3z"/>
+                        <a href="https://www.linkedin.com/in/markus-riegel" title="Contact Markus on LinkedIn" aria-label="Contact Markus on LinkedIn">
+                            <svg class="mr-icon mr-icon-linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <path class="mr-icon-path" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect class="mr-icon-path" x="2" y="9" width="4" height="12" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle class="mr-icon-path" cx="4" cy="4" r="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;"/>
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/marcorei" title="Reach out to Markus via Twitter">
-                            <svg class="mr-icon" version="1.1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50">
-                                twitter
-                                <path class="mr-icon-path" d="M21.8,0.2C11.5,1.5,1.7,11.2,0.2,21.5c-0.9,6.7,0.8,13,4.3,17.9c1.4,1.9,3.8,2.9,6.1,2.3
-                                    c2.3-0.5,4.4-1.6,6.2-3c-3.5-0.1-6.4-2.4-7.4-5.5c0.5,0.1,1,0.1,1.5,0.1c0.7,0,1.4-0.1,2.1-0.3c-3.7-0.7-6.4-4-6.4-7.9c0,0,0,0,0,0
-                                    c1.1,0.6,2.3,1,3.6,1c-2.1-1.4-3.5-3.9-3.5-6.6c0-1.5,0.4-2.8,1.1-4c3.9,4.8,9.8,8,16.4,8.3c-0.1-0.6-0.2-1.2-0.2-1.8
-                                    c0-3.8,3.1-7.4,6.9-7.9c2.7-0.4,5.2,0.7,6.9,2.4c1.8-0.4,3.5-1,5-1.9c-0.6,1.9-1.9,3.4-3.5,4.4c1.6-0.2,3.1-0.6,4.6-1.3
-                                    c-1.1,1.6-2.4,3-4,4.1c0,0.3,0,0.7,0,1c0,10.5-8,22.6-22.6,22.6c-2.3,0-4.4-0.3-6.5-1c0,0,0,0,0,0c-0.4-0.1-0.7,0.4-0.3,0.7
-                                    c4.9,3.5,11.1,5.3,17.8,4.5c10.6-1.4,20.2-11,21.5-21.6C51.8,11.9,38.1-1.8,21.8,0.2z"/>
+                        <a href="mailto:hey@marcorei.com" title="Email Markus" aria-label="Email Markus">
+                            <svg class="mr-icon mr-icon-email" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <rect class="mr-icon-path" x="2.5" y="5" width="19" height="14" rx="2.4" ry="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="mr-icon-path" d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
                     </li>
                 </ul>
-                <p><a href="./imprint.html">Contact</a></p>
+                <ul class="mr-profiles-list mr-profiles-colorful">
+                    <li>
+                        <a href="https://makerworld.com/en/@marcorei" title="Visit marcorei on MakerWorld" aria-label="Visit marcorei on MakerWorld">
+                            <svg class="mr-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <path class="mr-icon-path" d="M4 8l8-4 8 4-8 4-8-4zM4 8v8l8 4 8-4V8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="mr-icon-path" d="M12 12v8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.patreon.com/marcorei" title="Support marcorei on Patreon" aria-label="Support marcorei on Patreon">
+                            <svg class="mr-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <circle class="mr-icon-path" cx="15" cy="8" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="mr-icon-path" d="M6 4v16" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.reddit.com/user/marcorei/" title="Join marcorei on Reddit" aria-label="Join marcorei on Reddit">
+                            <svg class="mr-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <circle class="mr-icon-path" cx="9" cy="12" r="1" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle class="mr-icon-path" cx="15" cy="12" r="1" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="mr-icon-path" d="M7 15c1 1 2.5 1.5 5 1.5s4-.5 5-1.5M6 10.5c-1 0-2 .8-2 2s1 2 2 2M18 10.5c1 0 2 .8 2 2s-1 2-2 2M7.2 10l1-3.2 3.8.8M16.5 6.8a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            <div class="mr-bottom-controls">
+                <div class="mr-mode-switcher" role="group" aria-label="Background mode">
+                    <button class="mr-mode-btn is-active" type="button" data-mode="blue" aria-pressed="true" title="Blue mode">
+                        <span class="mr-mode-dot mr-mode-dot-blue" aria-hidden="true"></span>
+                    </button>
+                    <button class="mr-mode-btn" type="button" data-mode="colorful" aria-pressed="false" title="Colourful mode">
+                        <span class="mr-mode-dot mr-mode-dot-colorful" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <p class="mr-contact-link"><a href="./imprint.html">Contact</a></p>
             </div>
         </div>
     </body>
 
-    <!-- Required to prevent animations from firing on page load-->
-    <script> </script>
+    <script>
+        (function () {
+            var backgrounds = Array.prototype.slice.call(document.querySelectorAll(".mr-bg-animate"));
+            var modeButtons = Array.prototype.slice.call(document.querySelectorAll(".mr-mode-btn"));
+            var root = document.documentElement;
+            var MODE_TO_QUERY = {
+                blue: "dev",
+                colorful: "3d"
+            };
+            var QUERY_TO_MODE = {
+                dev: "blue",
+                "3d": "colorful"
+            };
+
+            var resizeTimer;
+            function restartBgAnimation() {
+                backgrounds.forEach(function (bg) {
+                    bg.classList.remove("mr-bg-animate");
+                    void bg.getBoundingClientRect();
+                    bg.classList.add("mr-bg-animate");
+                });
+            }
+
+            window.addEventListener("resize", function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(restartBgAnimation, 180);
+            }, { passive: true });
+
+            function syncModeQuery(mode, usePushState) {
+                var queryValue = MODE_TO_QUERY[mode];
+                var url = new URL(window.location.href);
+                url.searchParams.set("m", queryValue);
+                if (usePushState) {
+                    window.history.pushState({ mode: mode }, "", url.toString());
+                } else {
+                    window.history.replaceState({ mode: mode }, "", url.toString());
+                }
+            }
+
+            function modeFromQuery() {
+                var queryMode = new URL(window.location.href).searchParams.get("m");
+                return QUERY_TO_MODE[queryMode] || "blue";
+            }
+
+            var MODE_TRANSITION_MS = 480;
+            var modeTransitionTimer;
+
+            function endModeTransition(mode) {
+                root.classList.remove("mode-transitioning");
+                root.classList.toggle("has-glass-logo-settled", mode === "colorful");
+            }
+
+            function applyMode(mode, animate) {
+                root.classList.toggle("mode-blue", mode === "blue");
+                root.classList.toggle("mode-colorful", mode === "colorful");
+                root.classList.toggle("has-glass-logo", mode === "colorful");
+                root.classList.toggle("has-glass-logo-settled", mode === "colorful" && !animate);
+
+                modeButtons.forEach(function (candidate) {
+                    var active = candidate.getAttribute("data-mode") === mode;
+                    candidate.classList.toggle("is-active", active);
+                    candidate.setAttribute("aria-pressed", active ? "true" : "false");
+                });
+            }
+
+            function setMode(mode) {
+                clearTimeout(modeTransitionTimer);
+                root.classList.add("mode-transitioning");
+                root.classList.remove("has-glass-logo-settled");
+                applyMode(mode, true);
+
+                modeTransitionTimer = setTimeout(function () {
+                    endModeTransition(mode);
+                }, MODE_TRANSITION_MS);
+            }
+
+            var initialMode = modeFromQuery();
+            applyMode(initialMode, false);
+            syncModeQuery(initialMode, false);
+            requestAnimationFrame(function () {
+                root.classList.remove("mode-init");
+            });
+
+            modeButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var mode = button.getAttribute("data-mode");
+                    if (mode === modeFromQuery()) {
+                        return;
+                    }
+                    setMode(mode);
+                    syncModeQuery(mode, true);
+                });
+            });
+
+            window.addEventListener("popstate", function () {
+                setMode(modeFromQuery());
+            });
+        })();
+    </script>
 
 </html>
