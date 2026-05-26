@@ -16,7 +16,7 @@
                 root.classList.add("mode-init");
             })();
         </script>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css?v=20260526">
     </head>
     <body width="device-width">
         <svg class="mr-bg mr-bg-animate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -139,9 +139,7 @@
                 <p class="mr-contact-link"><a href="./imprint.html">Contact</a></p>
             </div>
         </div>
-    </body>
-
-    <script>
+        <script>
         (function () {
             var backgrounds = Array.prototype.slice.call(document.querySelectorAll(".mr-bg-animate"));
             var modeButtons = Array.prototype.slice.call(document.querySelectorAll(".mr-mode-btn"));
@@ -239,6 +237,6 @@
                 setMode(modeFromQuery());
             });
         })();
-    </script>
-
+        </script>
+    </body>
 </html>
