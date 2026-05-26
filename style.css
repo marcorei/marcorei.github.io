@@ -143,12 +143,16 @@ html.mode-colorful .mr-bg-colorful {
 
 /* --- logo --- */
 
-.mr-logo-wrap {
+.mr-logo-stage {
     position: relative;
     width: 55pt;
-    /* Match vector viewBox; nudge glass via vars below */
     aspect-ratio: 208 / 182;
     margin: 0 auto;
+}
+.mr-logo-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
     isolation: isolate;
     --logo-glass-scale: 1.115;
     --logo-glass-x: 0.6%;
@@ -192,10 +196,6 @@ html.mode-colorful .mr-bg-colorful {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
-html.mode-colorful.has-glass-logo-settled .mr-logo-wrap {
-    filter: drop-shadow(0 6px 14px rgba(40, 16, 24, 0.22));
-}
-
 .mr-logo-glass-layer {
     position: absolute;
     inset: 0;
@@ -207,7 +207,7 @@ html.mode-colorful.has-glass-logo-settled .mr-logo-wrap {
 }
 .mr-logo-glass-layer-shadow {
     mix-blend-mode: multiply;
-    opacity: 0.38;
+    opacity: 0.5;
 }
 .mr-logo-glass-layer-beauty {
     opacity: 1;
@@ -489,7 +489,7 @@ html.mode-colorful .mr-profiles-stack .mr-profiles-colorful {
     .mr-lp-header-section .mr-content {
         padding-bottom: 130px;
     }
-    .mr-logo-wrap {
+    .mr-logo-stage {
         width: 68pt;
     }
     h1 {
@@ -542,8 +542,8 @@ html.mode-transitioning .mr-bg,
 html.mode-transitioning .mr-bg-colorful {
     transition-duration: 0.4s;
 }
-html.mode-transitioning .mr-bg-blob,
-html.mode-transitioning .mr-bg-colorful.mr-bg-animate {
+/* Pause blue blobs only — toggling colourful bg filter/animation caused a late light halo around the logo on iOS */
+html.mode-transitioning .mr-bg.mr-bg-animate .mr-bg-blob {
     animation-play-state: paused;
 }
 html.mode-transitioning body::before {
@@ -551,10 +551,6 @@ html.mode-transitioning body::before {
 }
 html.mode-transitioning .mr-bg {
     filter: blur(14px);
-}
-html.mode-transitioning .mr-bg-colorful {
-    filter: blur(8px) saturate(1.1) contrast(1.08);
-    animation: none;
 }
 
 /* --- touch / slow mobile: clip-path slides, no transform compositing --- */

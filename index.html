@@ -6,10 +6,16 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <script>
             (function () {
-                var query = new URL(window.location.href).searchParams.get("m");
+                var path = window.location.pathname.replace(/\/$/, "") || "/";
+                var host = window.location.hostname;
+                var local = !host || host === "localhost" || host === "127.0.0.1";
+                var colorful = path === "/3d";
+                if (!colorful && local) {
+                    colorful = new URL(window.location.href).searchParams.get("m") === "3d";
+                }
                 var root = document.documentElement;
-                if (query === "3d") {
-                    root.classList.add("mode-colorful", "has-glass-logo", "has-glass-logo-settled");
+                if (colorful) {
+                    root.classList.add("mode-colorful", "has-glass-logo");
                 } else {
                     root.classList.add("mode-blue");
                 }
@@ -53,7 +59,8 @@
         <div class="mr-lp-header-section">
             <div class="mr-spacer">&nbsp;</div>
             <div class="mr-content">
-                <div class="mr-logo-wrap" role="img" aria-label="marcorei logo">
+                <div class="mr-logo-stage" role="img" aria-label="marcorei logo">
+                    <div class="mr-logo-wrap">
                     <svg class="mr-logo mr-logo-vector" viewBox="0 0 208 182" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path class="mr-logo-path" d="M103.902,5.868l-48.906,0l24.44,42.161l24.466,-14.089l0,-28.073Zm98.086,0l-48.932,0l-24.479,42.266l73.411,42.24l0,-84.505Zm0,169.271l0,-84.766l-73.49,42.318l24.583,42.448l48.906,0Zm-122.448,-42.37l-24.544,42.37l48.958,0l-0.026,-28.333l-24.388,-14.036Zm-73.672,42.37l49.128,0l24.544,-42.37l-73.672,-42.409l0,84.779Zm122.63,-42.448l-24.57,14.115l-24.388,-14.036l24.518,-42.279l24.44,42.201Z"/>
                     </svg>
@@ -61,6 +68,7 @@
                         <img class="mr-logo-glass-layer mr-logo-glass-layer-shadow is-ready" src="./img/logo-3d-shadow.png" alt="" />
                         <img class="mr-logo-glass-layer mr-logo-glass-layer-beauty is-ready" src="./img/logo-3d-beauty.png" alt="" />
                         <img class="mr-logo-glass-layer mr-logo-glass-layer-spec is-ready" src="./img/logo-3d-spec.png" alt="" />
+                    </div>
                     </div>
                 </div>
                 <h1 class="mr-copy-swap">
@@ -144,14 +152,41 @@
             var backgrounds = Array.prototype.slice.call(document.querySelectorAll(".mr-bg-animate"));
             var modeButtons = Array.prototype.slice.call(document.querySelectorAll(".mr-mode-btn"));
             var root = document.documentElement;
-            var MODE_TO_QUERY = {
-                blue: "dev",
-                colorful: "3d"
-            };
-            var QUERY_TO_MODE = {
-                dev: "blue",
-                "3d": "colorful"
-            };
+            function isLocalDev() {
+                var host = window.location.hostname;
+                return !host || host === "localhost" || host === "127.0.0.1";
+            }
+
+            function normalizedPath() {
+                var path = window.location.pathname.replace(/\/$/, "");
+                return path || "/";
+            }
+
+            function modeFromLocation() {
+                if (normalizedPath() === "/3d") {
+                    return "colorful";
+                }
+                if (isLocalDev()) {
+                    var queryMode = new URL(window.location.href).searchParams.get("m");
+                    if (queryMode === "3d") {
+                        return "colorful";
+                    }
+                }
+                return "blue";
+            }
+
+            function urlForMode(mode) {
+                if (isLocalDev()) {
+                    var localUrl = new URL(window.location.origin + "/");
+                    if (mode === "colorful") {
+                        localUrl.searchParams.set("m", "3d");
+                    } else {
+                        localUrl.searchParams.set("m", "dev");
+                    }
+                    return localUrl;
+                }
+                return new URL(window.location.origin + (mode === "colorful" ? "/3d" : "/"));
+            }
 
             var resizeTimer;
             function restartBgAnimation() {
@@ -167,35 +202,27 @@
                 resizeTimer = setTimeout(restartBgAnimation, 180);
             }, { passive: true });
 
-            function syncModeQuery(mode, usePushState) {
-                var queryValue = MODE_TO_QUERY[mode];
-                var url = new URL(window.location.href);
-                url.searchParams.set("m", queryValue);
+            function syncModeUrl(mode, usePushState) {
+                var url = urlForMode(mode);
+                var href = url.pathname + url.search;
                 if (usePushState) {
-                    window.history.pushState({ mode: mode }, "", url.toString());
+                    window.history.pushState({ mode: mode }, "", href);
                 } else {
-                    window.history.replaceState({ mode: mode }, "", url.toString());
+                    window.history.replaceState({ mode: mode }, "", href);
                 }
-            }
-
-            function modeFromQuery() {
-                var queryMode = new URL(window.location.href).searchParams.get("m");
-                return QUERY_TO_MODE[queryMode] || "blue";
             }
 
             var MODE_TRANSITION_MS = 480;
             var modeTransitionTimer;
 
-            function endModeTransition(mode) {
+            function endModeTransition() {
                 root.classList.remove("mode-transitioning");
-                root.classList.toggle("has-glass-logo-settled", mode === "colorful");
             }
 
-            function applyMode(mode, animate) {
+            function applyMode(mode) {
                 root.classList.toggle("mode-blue", mode === "blue");
                 root.classList.toggle("mode-colorful", mode === "colorful");
                 root.classList.toggle("has-glass-logo", mode === "colorful");
-                root.classList.toggle("has-glass-logo-settled", mode === "colorful" && !animate);
 
                 modeButtons.forEach(function (candidate) {
                     var active = candidate.getAttribute("data-mode") === mode;
@@ -207,17 +234,16 @@
             function setMode(mode) {
                 clearTimeout(modeTransitionTimer);
                 root.classList.add("mode-transitioning");
-                root.classList.remove("has-glass-logo-settled");
-                applyMode(mode, true);
+                applyMode(mode);
 
                 modeTransitionTimer = setTimeout(function () {
-                    endModeTransition(mode);
+                    endModeTransition();
                 }, MODE_TRANSITION_MS);
             }
 
-            var initialMode = modeFromQuery();
-            applyMode(initialMode, false);
-            syncModeQuery(initialMode, false);
+            var initialMode = modeFromLocation();
+            applyMode(initialMode);
+            syncModeUrl(initialMode, false);
             requestAnimationFrame(function () {
                 root.classList.remove("mode-init");
             });
@@ -225,16 +251,16 @@
             modeButtons.forEach(function (button) {
                 button.addEventListener("click", function () {
                     var mode = button.getAttribute("data-mode");
-                    if (mode === modeFromQuery()) {
+                    if (mode === modeFromLocation()) {
                         return;
                     }
                     setMode(mode);
-                    syncModeQuery(mode, true);
+                    syncModeUrl(mode, true);
                 });
             });
 
             window.addEventListener("popstate", function () {
-                setMode(modeFromQuery());
+                setMode(modeFromLocation());
             });
         })();
         </script>
