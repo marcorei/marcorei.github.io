@@ -161,15 +161,23 @@ html.mode-colorful .mr-bg-colorful {
 .mr-logo {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     fill: none;
 }
 .mr-logo-vector {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 2;
     width: 100%;
-    height: auto;
+    height: 100%;
     visibility: visible;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: opacity 0.45s ease, visibility 0s linear 0.45s;
+}
+html.mode-blue .mr-logo-vector {
     transition: opacity 0.45s ease, visibility 0s linear 0s;
 }
 .mr-logo-vector .mr-logo-path {
@@ -336,7 +344,12 @@ html.mode-colorful .mr-mode-btn:focus-visible .mr-mode-dot {
     align-items: center;
     justify-content: center;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-    transition: transform 0.22s ease, box-shadow 0.22s ease, background-position 0.5s ease;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* No transform transition — Safari snaps ~1px when scale animation ends */
+    transition: width 0.22s ease, height 0.22s ease, box-shadow 0.22s ease, background-position 0.5s ease;
     background-size: 190% 190%;
     background-position: 45% 45%;
 }
@@ -351,7 +364,8 @@ html.mode-colorful .mr-mode-btn:focus-visible .mr-mode-dot {
 
 .mr-mode-btn:not(.is-active):hover .mr-mode-dot {
     background-position: 66% 34%;
-    transform: scale(1.05);
+    width: 25pt;
+    height: 25pt;
     box-shadow: 0 0 0 2px #05e8cb, inset 0 0 0 1px rgba(255, 255, 255, 0.22);
 }
 html.mode-colorful .mr-mode-btn:not(.is-active):hover .mr-mode-dot {
@@ -361,7 +375,8 @@ html.mode-colorful .mr-mode-btn:not(.is-active):hover .mr-mode-dot {
 .mr-mode-btn.is-active .mr-mode-dot,
 html.mode-blue .mr-mode-btn[data-mode="blue"] .mr-mode-dot,
 html.mode-colorful .mr-mode-btn[data-mode="colorful"] .mr-mode-dot {
-    transform: scale(1.12);
+    width: 27pt;
+    height: 27pt;
     box-shadow: 0 0 0 2px #fff, inset 0 0 0 1px rgba(255, 255, 255, 0.26);
 }
 
@@ -369,7 +384,8 @@ html.mode-colorful .mr-mode-btn[data-mode="colorful"] .mr-mode-dot {
 html.mode-blue .mr-mode-btn[data-mode="blue"]:hover .mr-mode-dot,
 html.mode-colorful .mr-mode-btn[data-mode="colorful"]:hover .mr-mode-dot {
     background-position: 45% 45%;
-    transform: scale(1.12);
+    width: 27pt;
+    height: 27pt;
     box-shadow: 0 0 0 2px #fff, inset 0 0 0 1px rgba(255, 255, 255, 0.26);
 }
 
@@ -455,10 +471,13 @@ html.mode-colorful a:hover {
     position: absolute;
     left: 50%;
     top: 0;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     width: max-content;
     margin: 0;
-    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .mr-profiles-stack .mr-profiles-blue {
     opacity: 1;
@@ -467,19 +486,16 @@ html.mode-colorful a:hover {
 .mr-profiles-stack .mr-profiles-colorful {
     opacity: 0;
     visibility: hidden;
-    transform: translateX(calc(-50% + 16px)) scale(0.96);
     pointer-events: none;
 }
 html.mode-colorful .mr-profiles-stack .mr-profiles-blue {
     opacity: 0;
     visibility: hidden;
-    transform: translateX(calc(-50% - 16px)) scale(0.96);
     pointer-events: none;
 }
 html.mode-colorful .mr-profiles-stack .mr-profiles-colorful {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) scale(1);
     pointer-events: auto;
 }
 
@@ -580,13 +596,22 @@ html.mode-transitioning .mr-bg {
         clip-path: inset(0 0 0 0);
     }
     .mr-profiles-stack .mr-profiles-list {
-        transition: opacity 0.32s ease, visibility 0.32s ease;
-        transform: translateX(-50%) !important;
+        transition-duration: 0.32s;
     }
-    .mr-profiles-stack .mr-profiles-colorful {
-        transform: translateX(-50%) !important;
+    .mr-mode-dot {
+        width: 28pt;
+        height: 28pt;
     }
-    html.mode-colorful .mr-profiles-stack .mr-profiles-colorful {
-        transform: translateX(-50%) !important;
+    .mr-mode-btn:not(.is-active):hover .mr-mode-dot {
+        width: 29pt;
+        height: 29pt;
+    }
+    .mr-mode-btn.is-active .mr-mode-dot,
+    html.mode-blue .mr-mode-btn[data-mode="blue"] .mr-mode-dot,
+    html.mode-colorful .mr-mode-btn[data-mode="colorful"] .mr-mode-dot,
+    html.mode-blue .mr-mode-btn[data-mode="blue"]:hover .mr-mode-dot,
+    html.mode-colorful .mr-mode-btn[data-mode="colorful"]:hover .mr-mode-dot {
+        width: 31pt;
+        height: 31pt;
     }
 }
