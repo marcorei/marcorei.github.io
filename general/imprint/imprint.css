@@ -1,0 +1,79 @@
+.subpage-theme-imprint {
+    --subpage-bg: #ffffff;
+    --subpage-content-color: #23272f;
+    --subpage-header-base: #17a7ea;
+    --subpage-accent: #17a7ea;
+    --subpage-home-hover: #05e8cb;
+}
+
+.subpage-theme-imprint .subpage-header-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(16px);
+}
+
+.subpage-theme-imprint .subpage-header-blob {
+    transform-origin: center;
+    opacity: 0.34;
+    will-change: opacity, transform;
+}
+
+.subpage-theme-imprint .subpage-header-b1 {
+    animation: imprintLightPulseA 18s ease-in-out infinite;
+}
+
+.subpage-theme-imprint .subpage-header-b2 {
+    animation: imprintLightPulseB 24s ease-in-out infinite;
+}
+
+.subpage-theme-imprint .subpage-header-b3 {
+    animation: imprintLightPulseC 27s ease-in-out infinite;
+}
+
+.subpage-theme-imprint .subpage-header-b4 {
+    animation: imprintLightPulseB 22s ease-in-out infinite reverse;
+}
+
+.subpage-theme-imprint .subpage-header-b5 {
+    animation: imprintLightPulseA 26s ease-in-out infinite reverse;
+}
+
+@keyframes imprintLightPulseA {
+    0%,
+    100% {
+        opacity: 0.22;
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        opacity: 0.36;
+        transform: translate(2.8%, -2.2%) scale(1.05);
+    }
+}
+
+@keyframes imprintLightPulseB {
+    0%,
+    100% {
+        opacity: 0.28;
+        transform: translate(0, 0) scale(1.015);
+    }
+    50% {
+        opacity: 0.16;
+        transform: translate(-2.3%, 1.9%) scale(0.97);
+    }
+}
+
+@keyframes imprintLightPulseC {
+    0%,
+    100% {
+        opacity: 0.18;
+        transform: translate(0, 0) scale(0.99);
+    }
+    50% {
+        opacity: 0.3;
+        transform: translate(1.8%, 2.2%) scale(1.045);
+    }
+}

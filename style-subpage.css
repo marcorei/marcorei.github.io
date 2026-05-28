@@ -1,0 +1,151 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.subpage {
+    background: var(--subpage-bg, #ffffff);
+    color: var(--subpage-content-color, #23272f);
+}
+
+.subpage-header {
+    position: relative;
+    background: var(--subpage-header-base, #17a7ea);
+    overflow: hidden;
+}
+
+.subpage-header-bar {
+    position: relative;
+    z-index: 1;
+    min-height: 85px;
+    display: grid;
+    grid-template-columns: 40pt auto 40pt;
+    align-items: center;
+    padding: 16px 36px;
+}
+
+.subpage-home-button {
+    position: static;
+    grid-column: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28pt;
+    height: 28pt;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s linear;
+    justify-self: start;
+}
+
+.subpage-home-button:hover {
+    color: var(--subpage-home-hover, #05e8cb);
+}
+
+.subpage-home-icon {
+    width: 20pt;
+    height: 20pt;
+    display: block;
+}
+
+.subpage-home-icon-path {
+    stroke: currentColor;
+    stroke-width: 1.7;
+    fill: none;
+}
+
+.subpage-header-title {
+    grid-column: 2;
+    margin: 0;
+    color: #ffffff;
+    font-size: 17pt;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+}
+
+.subpage-header-spacer {
+    grid-column: 3;
+    width: 28pt;
+    height: 28pt;
+}
+
+.subpage-content {
+    background: var(--subpage-bg, #ffffff);
+    color: var(--subpage-content-color, #23272f);
+    padding: 40px 20px 56px;
+    text-align: center;
+}
+
+.subpage-content section {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.subpage-content p {
+    margin: 5pt 0;
+    font-size: 10pt;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.subpage-content .subpage-name {
+    font-weight: bold;
+    margin-bottom: 9pt;
+}
+
+.subpage-content-title {
+    display: none;
+    margin: 0 0 14px;
+    font-size: 17pt;
+    font-weight: normal;
+    font-style: normal;
+    color: var(--subpage-accent, #17a7ea);
+}
+
+.subpage-content a {
+    color: inherit;
+}
+
+@media (max-width: 640px) {
+    .subpage-header-bar {
+        min-height: 68px;
+        padding: 14px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .subpage-home-button {
+        width: 30pt;
+        height: 30pt;
+    }
+
+    .subpage-home-icon {
+        width: 21pt;
+        height: 21pt;
+    }
+
+    .subpage-header-title {
+        display: none;
+    }
+
+    .subpage-header-spacer {
+        display: none;
+    }
+
+    .subpage-content {
+        padding-top: 30px;
+    }
+
+    .subpage-content-title {
+        display: block;
+        font-size: 21pt;
+        color: var(--subpage-accent, #17a7ea);
+        margin: 4px 0 28px;
+    }
+}
