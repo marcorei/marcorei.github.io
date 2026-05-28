@@ -1,0 +1,68 @@
+# marcorei — Markus Riegel
+
+> Personal site of **Markus Riegel** (trading as **marcorei**): Munich-based freelance Android / AOSP architect and developer, and creator of original 3D-printable models published on MakerWorld.
+
+The site has two distinct sides that share the same brand and the same person:
+
+1. **Software development** — Markus works as a freelance Android / AOSP architect, with a current focus on Android Automotive (AAOS), SystemUI, Launcher and privileged system apps for German and international automotive companies. He also takes on mobile, multiplatform and technical-architect work outside of automotive.
+2. **3D printing** — under the same `marcorei` handle, he designs and publishes original 3D-printable models on MakerWorld. The models are free for personal use; a commercial-print license is sold as a paid subscription on Patreon.
+
+Contact: <hey@marcorei.com> · Based in Munich, Germany.
+
+## Software development
+
+Markus Riegel is an Android / AOSP architect and developer with experience across **modern Android stacks (Compose, Jetpack, Kotlin Multiplatform)** and **AOSP-level work** (SystemUI, Launcher, privileged system apps, AIDL, Soong). He has integrated new AAOS systems with legacy in-vehicle Android stacks, and is experienced in **cross-layer defect analysis** across app, AOSP framework and OEM layers.
+
+- [Home page](https://marcorei.com/): overview, social and contact links for the developer side of marcorei.
+- [Imprint](https://marcorei.com/general/imprint/): legal entity, address, VAT ID and contact email.
+- [GitHub — marcorei](https://github.com/marcorei): open-source code and contributions.
+- [LinkedIn — Markus Riegel](https://www.linkedin.com/in/markus-riegel): professional profile, full work history and recommendations.
+
+### Core skills
+
+- **Languages:** Kotlin, Java, SQL, TypeScript, Swift.
+- **AOSP / Automotive:** AAOS, SystemUI, Launcher, AIDL, Soong, unbundled apps and AOSP modules, Android 11 and Android 14, Compose-based system UI, container runtimes mixing AAOS and legacy Android.
+- **Android:** Android SDK, Jetpack Compose, Jetpack libraries, Hilt / Dagger, Gradle, AndroidX Room (including upstream contribution).
+- **Cross-platform & mobile:** Kotlin Multiplatform (KMP), iOS / Swift.
+- **Build & tooling:** GitLab CI, Docker, DLT.
+- **Messaging / data:** DDS, Protobuf, GraphQL, Cassandra.
+- **Spoken languages:** German (native), English (fluent, business and technical).
+
+### Selected automotive / AAOS projects
+
+- **AAOS systems architect (2024–2025)** — Evolved SystemUI and Launcher from prototype to production-grade on API 30 and 34, unbundled and Compose-based. Fixed an ActivityView bug enabling a TaskView-based launcher backport to Android 11. Integrated automotive map data (speed limits, road attributes) into a new AAOS plus legacy Android container runtime. Designed a template-based Launcher widget architecture. Project for a Turkish automotive company.
+- **AAOS app triage specialist (2023–2024)** — Reverse-engineered and decompiled third-party apps (media, games and others) to investigate defects and runtime behaviour for a leading automotive app store (Faurecia Aptoide Automotive). Traced issues through the Android framework to isolate root causes across app, AOSP and OEM layers. Produced technical write-ups with reproduction steps and recommended resolutions.
+- **Android UI library Compose migration (2023)** — Built Compose migration prototypes for a large German automotive company's AAOS UI library.
+- **Android developer, UI library, AAOS (2019–2020)** — Continued development of a themable UI library for the AOSP-based infotainment system of a German automotive manufacturer. Refactored the library into modules for app and AOSP usage, collaborated with the design team to implement the design language, and managed library releases.
+
+### Selected mobile / multiplatform projects
+
+- **Technical architect, education recruitment platform (2025)** — Served as technical architect for a new KMP-based multiplatform education recruitment platform for QS Quacquarelli Symonds. Responsible for the solution architecture, initial infrastructure and data integration layer.
+- **EV charging app (2022–2023)** — Developed new features for the Android app of a German EV charging and energy solutions platform. Assisted the core team with CI fixes for Compose integration and ported initial Compose screens.
+- **Army builder mobile app (2020–2022)** — Improved Games Workshop's army builder mobile apps for their main tabletop game system, supported subsequent app launches, and developed best practices for fast turnarounds. Includes an AndroidX Room contribution for complex client-side SQL queries.
+- **Account takeover protection prototype (2023)** — For SealOne, a Frankfurt-based security solutions company, developed a prototype defending against a trending attack using the smartphone camera.
+- **KI Transfer+ (2023)** — Funded by the Bavarian Ministry for Digital via AppliedAI and KI Transfer+, worked with major Bavarian companies on improving processes with AI.
+- **Virtual showroom and conferencing platform (2021–2022)** — For Comberry, a media production company and startup incubator in Malaysia and Germany, introduced ticket processes, recruited QA, defined ready/done criteria and improved development efficiency with the distributed nearshore team.
+
+### Earlier career
+
+- **CTO, Wag it GmbH (2015–2018)** — Startup lab originally founded around the *wag it* messenger. Led development and maintenance of Android and iOS apps and open-source libraries with a small distributed team.
+- **Technical co-founder, Hi, Networks Inc. (2018–2020)** — White-label content monetization platform for media companies on GraphQL / Cassandra with iOS and Android clients.
+- **19:13 GmbH (2011–2015)** — Head of Digital (2014–2015) and Online Concept (2011–2014) at a digital agency focused on digital transformation for brands and businesses.
+- **Freelance designer / Flash developer (2006–2010)**.
+- **Bachelor of Arts, Media Design (2006–2009)**.
+
+## 3D printing
+
+Under the same `marcorei` handle, Markus designs and publishes original 3D-printable models. The models are free for personal use on MakerWorld. A commercial-print license — for makers who want to **print and sell** the models — is offered as a paid monthly subscription on Patreon.
+
+- [MakerWorld profile — @marcorei](https://makerworld.com/en/@marcorei): full catalogue of original 3D-printable models, free for personal use.
+- [Patreon — marcorei](https://www.patreon.com/marcorei): support marcorei and subscribe to the commercial print tier to unlock the commercial license.
+- [Commercial license](https://marcorei.com/3d/commercial-license/): full terms for 3D-printing and selling marcorei models under an active Patreon subscription, including scope, attribution, production limits, sell-off period and what is explicitly not allowed.
+- [Reddit — u/marcorei](https://www.reddit.com/user/marcorei/): occasional posts and discussion around the prints.
+
+## Contact
+
+- Email: <hey@marcorei.com>
+- Location: Munich, Germany
+- Legal / imprint: <https://marcorei.com/general/imprint/>
