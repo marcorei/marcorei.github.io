@@ -389,8 +389,27 @@ html.mode-colorful .mr-mode-btn[data-mode="colorful"]:hover .mr-mode-dot {
     box-shadow: 0 0 0 2px #fff, inset 0 0 0 1px rgba(255, 255, 255, 0.26);
 }
 
-.mr-contact-link {
+.mr-footer-links {
     margin: 0;
+}
+.mr-footer-extra {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    white-space: nowrap;
+    max-width: 0;
+    opacity: 0;
+    transition: max-width 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease;
+}
+.mr-footer-sep {
+    display: inline-block;
+    margin: 0 8pt;
+    color: #fff;
+    pointer-events: none;
+}
+html.mode-colorful .mr-footer-extra {
+    max-width: 30em;
+    opacity: 1;
 }
 
 /* --- type --- */
@@ -420,7 +439,8 @@ h1 {
     transition: opacity 0.34s ease, transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
 }
 html.mode-init .mr-copy-pane,
-html.mode-init .mr-profiles-stack .mr-profiles-list {
+html.mode-init .mr-profiles-stack .mr-profiles-list,
+html.mode-init .mr-footer-extra {
     transition: none !important;
 }
 .mr-copy-pane-blue {
