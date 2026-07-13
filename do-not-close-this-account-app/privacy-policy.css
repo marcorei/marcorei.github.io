@@ -1,0 +1,208 @@
+.subpage-theme-do-not-close-account {
+    --subpage-bg: #ffffff;
+    --subpage-content-color: #23272f;
+    --subpage-header-base: #17a7ea;
+    --subpage-accent: #17a7ea;
+    --subpage-home-hover: #05e8cb;
+}
+
+.subpage-theme-do-not-close-account .subpage-header-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(16px);
+}
+
+.subpage-theme-do-not-close-account .subpage-header-blob {
+    transform-origin: center;
+    opacity: 0.34;
+    will-change: opacity, transform;
+}
+
+.subpage-theme-do-not-close-account .subpage-header-b1 {
+    animation: policyLightPulseA 18s ease-in-out infinite;
+}
+
+.subpage-theme-do-not-close-account .subpage-header-b2 {
+    animation: policyLightPulseB 24s ease-in-out infinite;
+}
+
+.subpage-theme-do-not-close-account .subpage-header-b3 {
+    animation: policyLightPulseC 27s ease-in-out infinite;
+}
+
+.subpage-theme-do-not-close-account .subpage-header-b4 {
+    animation: policyLightPulseB 22s ease-in-out infinite reverse;
+}
+
+.subpage-theme-do-not-close-account .subpage-header-b5 {
+    animation: policyLightPulseA 26s ease-in-out infinite reverse;
+}
+
+@keyframes policyLightPulseA {
+    0%,
+    100% {
+        opacity: 0.22;
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        opacity: 0.36;
+        transform: translate(2.8%, -2.2%) scale(1.05);
+    }
+}
+
+@keyframes policyLightPulseB {
+    0%,
+    100% {
+        opacity: 0.28;
+        transform: translate(0, 0) scale(1.015);
+    }
+    50% {
+        opacity: 0.16;
+        transform: translate(-2.3%, 1.9%) scale(0.97);
+    }
+}
+
+@keyframes policyLightPulseC {
+    0%,
+    100% {
+        opacity: 0.18;
+        transform: translate(0, 0) scale(0.99);
+    }
+    50% {
+        opacity: 0.3;
+        transform: translate(1.8%, 2.2%) scale(1.045);
+    }
+}
+
+.subpage-content.policy {
+    text-align: left;
+    padding: 48px 24px 72px;
+    line-height: 1.6;
+}
+
+.policy-article {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 11.5pt;
+}
+
+.policy-article > .subpage-content-title {
+    text-align: center;
+}
+
+.policy-lede {
+    margin: 0 0 4pt;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--subpage-accent, #17a7ea);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.policy-meta {
+    margin: 0 0 22pt;
+    color: #5c606a;
+    font-size: 10pt;
+    text-align: center;
+}
+
+.policy-intro {
+    margin: 0 0 18pt;
+    font-size: 12pt;
+}
+
+.policy-rule {
+    border: 0;
+    height: 1px;
+    background: rgba(23, 167, 234, 0.18);
+    margin: 28pt 0;
+}
+
+.policy-section {
+    margin: 0 0 22pt;
+}
+
+.policy-section h2 {
+    margin: 0 0 10pt;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--subpage-accent, #17a7ea);
+    line-height: 1.3;
+    scroll-margin-top: 24px;
+}
+
+.subpage-content.policy p,
+.subpage-content.policy li {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    margin: 0 0 9pt;
+}
+
+.subpage-content.policy ul {
+    margin: 0 0 12pt;
+    padding-left: 22px;
+}
+
+.subpage-content.policy li {
+    margin-bottom: 6pt;
+}
+
+.subpage-content.policy li::marker {
+    color: var(--subpage-accent, #17a7ea);
+}
+
+.subpage-content.policy strong {
+    color: #1a1c22;
+}
+
+.subpage-content.policy a {
+    color: var(--subpage-accent, #17a7ea);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.subpage-content.policy a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.policy-summary {
+    margin: 10pt 0 14pt;
+    padding: 10pt 16pt;
+    border-left: 3px solid var(--subpage-accent, #17a7ea);
+    background: rgba(23, 167, 234, 0.1);
+    color: #2a2c33;
+}
+
+.policy-signature {
+    margin: 0;
+    font-size: 11.5pt;
+    color: #5c606a;
+}
+
+@media (max-width: 640px) {
+    .subpage-content.policy {
+        padding: 32px 20px 56px;
+    }
+
+    .policy-article {
+        font-size: 11pt;
+    }
+
+    .policy-lede {
+        font-size: 13pt;
+    }
+
+    .policy-section h2 {
+        font-size: 13pt;
+    }
+
+    .subpage-content.policy p,
+    .subpage-content.policy li {
+        font-size: 11pt;
+    }
+}
